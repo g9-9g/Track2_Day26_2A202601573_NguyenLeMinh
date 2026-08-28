@@ -56,7 +56,7 @@ the claim's `argument` make the case.
    `false_claim_rate` and `precision` to make sure you did not trade recall for false claims.
 
 ```bash
-python -m eval.prosecute            # scores the starter against fixtures/prosecution/labelled/
+python -m eval.prosecute            # scores the prosecutor against fixtures/prosecution/labelled/
 python -m pytest tests/test_prosecute.py -v
 ```
 
@@ -89,16 +89,15 @@ bug in your code, not a measurement of detection quality, but they are still cou
 An `unproven` claim counts toward neither precision's nor recall's numerator — CONTRACTS.md §6.2
 pays it exactly 0 either way, so this mirrors the real economics.
 
-Running the starter (which implements exactly 1 of 17 classes) prints roughly:
+The completed prosecutor currently prints:
 
 ```
-precision: 1.000   recall: 0.059   f1: 0.111   false_claim_rate: 0.000
+precision: 1.000   recall: 1.000   f1: 1.000   false_claim_rate: 0.000
 ```
 
-**That shape is correct, not a bug to fix**: perfect precision (it never guesses wrong when it does
-file) and low recall (16 of 17 classes are still stubs). If your own numbers ever show HIGH recall
-before you've implemented anything, something is wrong with your changes — check you did not
-accidentally turn a stub into something that always fires.
+Every class is covered on both its positive and near-miss trace, while all six clean fixtures stay
+silent. Preserve the zero false-claim rate when extending a heuristic; recall gained by guessing is
+negative expected value below the uniform 44.4% break-even threshold.
 
 ## The fixture set — `fixtures/prosecution/labelled/`
 

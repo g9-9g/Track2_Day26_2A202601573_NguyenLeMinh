@@ -1,6 +1,6 @@
 {
  "version": 1,
- "team": "starter-deck",
+ "team": "2A202601573_NguyenLeMinh",
  "cards": [
   {
    "id": "atk_01",
@@ -170,7 +170,7 @@
    },
    "trigger": {
     "on": "call_index",
-    "gte": 2
+    "gte": 1
    }
   },
   {
@@ -196,7 +196,7 @@
    },
    "trigger": {
     "on": "call_index",
-    "gte": 2
+    "gte": 0
    }
   },
   {
